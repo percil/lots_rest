@@ -4,6 +4,7 @@ from django.db import models
 
 class GameTemplate(models.Model):
     name = models.CharField(max_length=100, null=True, blank=False, verbose_name='Name')
+    code = models.SlugField(max_length=150, null=True, blank=False, verbose_name='Slug')
 
     def __str__(self):
         return self.name
