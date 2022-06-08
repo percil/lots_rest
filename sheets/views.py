@@ -1,6 +1,8 @@
+import django_filters
 from django.shortcuts import render
 from rest_framework import generics
 
+from sheets.filters import *
 from sheets.serializers import *
 
 
@@ -16,11 +18,15 @@ class GameTemplateListView(generics.ListAPIView):
 class GameSessionListView(generics.ListAPIView):
     queryset = GameSession.objects.all()
     serializer_class = GameSessionSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filter_class = GameSessionFilter
 
 
 class CharacterSheetListView(generics.ListAPIView):
     queryset = CharacterSheet.objects.all()
     serializer_class = CharacterSheetSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filter_class = CharacterSheetFilter
 
 
 class CharacterSheetView(generics.RetrieveUpdateDestroyAPIView):
