@@ -7,6 +7,7 @@ urlpatterns = [
 
     path('templates', views.GameTemplateListView.as_view()),
     path('sessions', views.GameSessionListView.as_view()),
+    path('sessions/<int:id>', views.GameSessionDetailsView.as_view()),
     path('sheets', views.CharacterSheetListView.as_view()),
     path('sheets/<str:slug>', views.CharacterSheetView.as_view()),
 ]

@@ -22,6 +22,12 @@ class GameSessionListView(generics.ListAPIView):
     filter_class = GameSessionFilter
 
 
+class GameSessionDetailsView(generics.RetrieveAPIView):
+    queryset = GameSession.objects.all()
+    serializer_class = GameSessionSerializer
+    lookup_field = 'id'
+
+
 class CharacterSheetListView(generics.ListAPIView):
     queryset = CharacterSheet.objects.all()
     serializer_class = CharacterSheetSerializer

@@ -10,9 +10,11 @@ class AdminGameTemplate(admin.ModelAdmin):
 
 @admin.register(GameSession)
 class AdminGameSession(admin.ModelAdmin):
-    list_display = ('game_template', 'name')
+    list_display = ('name', 'game_template')
+    prepopulated_fields = {'slug': ('name',)}
 
 
 @admin.register(CharacterSheet)
 class AdminCharacterSheet(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'game_template')
+    prepopulated_fields = {'slug': ('name',)}
