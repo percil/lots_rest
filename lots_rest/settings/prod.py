@@ -16,6 +16,10 @@ logger.warning(f'secret_key={SECRET_KEY}')
 CSRF_TRUSTED_ORIGINS = ['https://lots.percil.be', 'https://lots-rest.percil.be']
 ALLOWED_HOSTS = ['lots.percil.be', 'lots-rest.percil.be']
 
+CORS_ALLOWED_ORIGINS = [
+    'https://lots.percil.be',
+]
+
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
