@@ -1,7 +1,6 @@
 import json
 import urllib.request
 
-from django.contrib.auth.models import User
 from django.db import models
 from django.utils.text import slugify
 
@@ -47,7 +46,6 @@ class CharacterSheet(models.Model):
         blank=True
     )
 
-    player = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Player')
     name = models.CharField(max_length=150, null=True, blank=False, verbose_name='Name')
     slug = models.SlugField(max_length=150, null=True, blank=False, verbose_name='Slug')
     content = models.JSONField(null=True, blank=True)
