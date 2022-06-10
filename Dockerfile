@@ -38,13 +38,16 @@ WORKDIR /app
 # uses SQLite, the folder needs to be owned by the user that
 # will be writing to the database file.
 RUN chown django:django /app
-RUN chown django:django /app/db.sqlite3
 
 # Copy the source code of the project into the container.
 COPY --chown=django:django . .
 
 # Use user "django" to run the build commands below and the server itself.
 USER django
+
+# Add the environment variable
+ARG django-secret-key
+ENV django-secret-key=${django-secret-key}
 
 # Collect static files.
 RUN python manage.py collectstatic --noinput --clear
