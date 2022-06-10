@@ -4,7 +4,9 @@ from .base import *
 DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('django-secret-key')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+
+print(SECRET_KEY)
 
 # SECURITY WARNING: define the correct hosts in production!
 CSRF_TRUSTED_ORIGINS = ['https://lots.percil.be']

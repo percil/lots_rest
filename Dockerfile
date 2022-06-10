@@ -46,8 +46,8 @@ COPY --chown=django:django . .
 USER django
 
 # Add the environment variable
-ARG django-secret-key
-ENV django-secret-key=${django-secret-key}
+ARG DJANGO_SECRET_KEY
+ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
 
 # Collect static files.
 RUN python manage.py collectstatic --noinput --clear
