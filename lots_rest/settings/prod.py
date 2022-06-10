@@ -13,8 +13,8 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 logger.warning(f'secret_key={SECRET_KEY}')
 
 # SECURITY WARNING: define the correct hosts in production!
-CSRF_TRUSTED_ORIGINS = ['https://lots.percil.be']
-ALLOWED_HOSTS = ['lots.percil.be', '*']
+CSRF_TRUSTED_ORIGINS = ['https://lots.percil.be', 'https://lots-rest.percil.be']
+ALLOWED_HOSTS = ['lots.percil.be', 'lots-rest.percil.be']
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
