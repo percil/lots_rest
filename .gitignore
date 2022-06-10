@@ -317,5 +317,5 @@ dmypy.json
 cython_debug/
 
 media
-static
+static/*
 staticfiles
