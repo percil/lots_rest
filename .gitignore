@@ -317,3 +317,4 @@ dmypy.json
 cython_debug/
 
 media
+static
