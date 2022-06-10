@@ -38,6 +38,7 @@ WORKDIR /app
 # uses SQLite, the folder needs to be owned by the user that
 # will be writing to the database file.
 RUN chown django:django /app
+RUN chown django:django /app/db.sqlite3
 
 # Copy the source code of the project into the container.
 COPY --chown=django:django . .
