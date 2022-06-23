@@ -9,15 +9,15 @@ DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-
-logger.warning(f'secret_key={SECRET_KEY}')
+REST_URL = os.getenv('REST_URL')
+FRONT_URL = os.getenv('FRONT_URL')
 
 # SECURITY WARNING: define the correct hosts in production!
-CSRF_TRUSTED_ORIGINS = ['https://lots.percil.be', 'https://lots-rest.percil.be']
-ALLOWED_HOSTS = ['lots.percil.be', 'lots-rest.percil.be']
+CSRF_TRUSTED_ORIGINS = [f'https://{REST_URL}', f'https://{FRONT_URL}']
+ALLOWED_HOSTS = [FRONT_URL, REST_URL]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://lots.percil.be',
+    f'https://{FRONT_URL}',
 ]
 
 # Database

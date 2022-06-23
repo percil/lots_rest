@@ -45,9 +45,16 @@ COPY --chown=django:django . .
 # Use user "django" to run the build commands below and the server itself.
 USER django
 
-# Add the environment variable
+# Add the environment variables
 ARG DJANGO_SECRET_KEY
 ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+
+# Backend public URL
+ARG REST_URL
+ENV REST_URL=${REST_URL}
+# Frontend public URL
+ARG FRONT_URL
+ENV FRONT_URL=${FRONT_URL}
 
 # Collect static files.
 RUN python manage.py collectstatic --noinput --clear
