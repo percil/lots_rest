@@ -22,7 +22,8 @@ You may also create a docker image: `docker build -t <whatever_name_you_want_to_
 
 ## Frontend integration
 
-Here are the character sheet templates currently supported by the Vue frontend:
+The frontend is [here](https://github.com/percil/lots_vue) and here are the character sheet templates currently
+supported by the Vue frontend:
 
 - Whitebox (code: whitebox)
 - Freaks'Squeele (code: freaks-squeele)
@@ -53,6 +54,10 @@ services:
     restart: always
     ports:
       - "127.0.0.120:8081:8080"
+    volumes:
+      - type: bind
+        source: .env.production
+        target: /app/.env.production
 ```
 
 And the `.env.rest` environment file:
@@ -61,6 +66,13 @@ And the `.env.rest` environment file:
 export DJANGO_SECRET_KEY=<some_random_and_quite_string_including_exotic_stuff>
 export REST_URL=<lorem-rest.ipsum.com>
 export FRONT_URL=<lorem.ipsum.com>
+```
+
+And also the `.env.production` environment file:
+
+```
+VUE_APP_REST_API_URL=https://<lorem-rest.ipsum.com>/api
+BASE_URL=https://<lorem.ipsum.com>
 ```
 
 Please note that for both REST and front URLs, the HTTPS is set in the `settings/prod.py` file
